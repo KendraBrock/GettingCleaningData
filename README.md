@@ -2,37 +2,12 @@
 JHU Getting and Cleaning Data Peer Assignment
 This code loads files, merges the datafiles, cleans them, and saves to a new, tidy dataset. 
 
-The code first loads files and assigns column names.
-
-##Merges the training and test data sets to form one dataset.
-Sets <- rbind(test_set, train_set)
-Labels <- rbind(test_labels, train_labels)
-subject <- rbind(test_subjects, train_subjects)
-all <- cbind(subject,Sets,Labels)
-
-##Extracts only the measurements on the mean and standard deviation for each measurement.
-Tidy <- all %>% select(subject, activity, contains("mean"), contains("std"))
-
-##Uses descriptive activity names.
-Tidy$activity <- activity_labels[Tidy$activity, 2]
-
-##Appropriately lables the dataset with descriptive variable names.
-names(Tidy) <- gsub("Acc", "Accelerometer", names(Tidy))
-names(Tidy) <- gsub("BodyBody", "Body", names(Tidy))
-names(Tidy) <- gsub("Gyro", "Gyrometer", names(Tidy))
-names(Tidy) <- gsub("Mag", "Magnitude", names(Tidy))
-names(Tidy) <- gsub("^t", "time", names(Tidy))
-names(Tidy) <- gsub("^f", "frequency", names(Tidy))
-names(Tidy) <- gsub("mean()", "Mean", names(Tidy))
-names(Tidy) <- gsub("std()", "STD", names(Tidy))
-
-##Creates a second, independent tidy data set,
-##with the average of each variable for each activity and each subject.
-FinalData <- Tidy %>%
-  group_by(subject, activity) %>%
-  summarise_all(funs(mean)) %>%
-    print()
-write.table(FinalData, file = "FinalData.txt", row.names = FALSE)
+1. The code first loads files and assigns column names.
+2. Merges the training and test data sets to form one dataset.
+3. Extracts only the measurements on the mean and standard deviation for each measurement.
+4. Uses descriptive activity names.
+5. Appropriately lables the dataset with descriptive variable names.
+6. Creates a second, independent tidy data set, with the average of each variable for each activity and each subject.
 
 Codebook
  [1] "subject"                                           

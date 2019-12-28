@@ -1,17 +1,8 @@
 # GettingCleaningData
-## JHU Getting and Cleaning Data Peer Assignment
-##This code loads files, merges the datafiles, cleans them, and saves to a new, tidy dataset. 
+JHU Getting and Cleaning Data Peer Assignment
+This code loads files, merges the datafiles, cleans them, and saves to a new, tidy dataset. 
 
-##Load files
-setwd("C:/Users/Kendra/Downloads/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset")
-test_subjects <- read.table("C:/Users/Kendra/Downloads/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/subject_test.txt", col.names = "subject")
-test_set <- read.table("C:/Users/Kendra/Downloads/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt", quote="\"", comment.char="", col.names = features$functions)
-test_labels <- read.table("C:/Users/Kendra/Downloads/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/y_test.txt", quote="\"", comment.char="", col.names = "activity")
-train_subjects <- read.table("C:/Users/Kendra/Downloads/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/subject_train.txt", quote="\"", comment.char="", col.names = "subject")
-train_set <- read.table("C:/Users/Kendra/Downloads/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/X_train.txt", quote="\"", comment.char="", col.names = features$functions)
-train_labels <- read.table("C:/Users/Kendra/Downloads/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/y_train.txt", quote="\"", comment.char="", col.names = "activity")
-features <- read.table("C:/Users/Kendra/Downloads/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/features.txt", quote="\"", comment.char="", col.names = c("n", "functions"))
-activity_labels <- read.table("C:/Users/Kendra/Downloads/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/activity_labels.txt", quote="\"", comment.char="", col.names = c("activity", "activity_name"))
+The code first loads files and assigns column names.
 
 ##Merges the training and test data sets to form one dataset.
 Sets <- rbind(test_set, train_set)
